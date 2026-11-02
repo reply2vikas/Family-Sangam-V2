@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Family Sangam: one budget for every celebration this season</title>
+    <meta
+      name="description"
+      content="Plan weddings, birthdays and community events together. See when your money runs short across the whole season, and what to change."
+    />
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to the planner</a>
+    <header class="top">
+      <div class="wrap">
+        <p class="brand">Family Sangam</p>
+        <p class="tag">Every celebration this season, one family budget.</p>
+      </div>
+    </header>
+
+    <main id="main" class="wrap" tabindex="-1">
+      <p id="status" class="status" role="status" aria-live="polite"></p>
+
+      <section id="start" aria-labelledby="start-h">
+        <h1 id="start-h">Plan the whole season, not one event</h1>
+        <p class="lead">
+          Weddings, birthdays and community events all draw from the same family money. Tell us what is coming and we
+          will show the day your cash runs short, and the smallest changes that fix it.
+        </p>
+
+        <div class="panel">
+          <h2>Describe it in your own words</h2>
+          <label for="brief">Your events, dates, rough budgets and when money comes in</label>
+          <textarea
+            id="brief"
+            rows="4"
+            maxlength="1200"
+            placeholder="Example: Riya's wedding on 20 Feb, about 220 guests, 15 lakh. Dadi's 80th birthday on 5 Dec, 50 people, 1.5 lakh. Salary of 2.5 lakh comes on the 1st of each month."
+          ></textarea>
+          <div class="row">
+            <button type="button" id="build-ai" class="primary">Build my plan with Gemini</button>
+            <button type="button" id="sample" class="ghost">Try a sample season</button>
+          </div>
+          <p class="note">
+            Gemini reads your words and fills the form below. You check it before anything is planned. No AI key? Use
+            the form or the sample.
+          </p>
+        </div>
+
+        <form id="setup" class="panel" novalidate aria-labelledby="setup-h">
+          <h2 id="setup-h">Or fill in the form</h2>
+          <div class="grid2">
+            <div><label for="s-start">Season starts</label><input id="s-start" type="date" required /></div>
+            <div>
+              <label for="s-balance">Money in hand today (₹)</label
+              ><input id="s-balance" type="number" min="0" step="1000" inputmode="numeric" required />
+            </div>
+          </div>
+          <fieldset>
+            <legend>Money coming in</legend>
+            <div id="incomes"></div>
+            <button type="button" id="add-income" class="ghost">Add income</button>
+          </fieldset>
+          <fieldset>
+            <legend>Events</legend>
+            <div id="events"></div>
+            <button type="button" id="add-event" class="ghost">Add an event</button>
+          </fieldset>
+          <ul id="errors" class="errors" role="alert"></ul>
+          <button type="submit" class="primary">Plan my season</button>
+        </form>
+      </section>
+
+      <section id="plan" hidden aria-labelledby="plan-h">
+        <div class="bar">
+          <h2 id="plan-h">Your season</h2>
+          <div class="row">
+            <button type="button" id="undo" class="ghost" disabled>Undo last change</button>
+            <button type="button" id="print" class="ghost">Print or save as PDF</button>
+            <button type="button" id="reset" class="ghost">Start over</button>
+          </div>
+        </div>
+        <div id="overview"></div>
+        <div id="event-list"></div>
+      </section>
+    </main>
+
+    <footer class="wrap foot">
+      <p>
+        Amounts are planning estimates from typical splits, not quotes. Anything you type is marked "you entered". AI
+        suggestions are labelled with their source. Your plan stays in this browser.
+      </p>
+    </footer>
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>
